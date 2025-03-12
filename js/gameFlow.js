@@ -115,10 +115,10 @@ function toggleControlsVisibility() {
     // console.log('Controls visibility toggled, mode displayed as:', inputMode);
 
     if (window.controlMode === 'touch') {
-      // window.joystickActive = true
-      // window.canvas.addEventListener('touchend', touchend_event)
-      // window.canvas.addEventListener('touchmove', touchmove_event)
-      // window.canvas.addEventListener('touchstart', touchstart_event)
+      window.joystickActive = true
+      window.canvas.addEventListener('touchend', touchend_event)
+      window.canvas.addEventListener('touchmove', touchmove_event)
+      window.canvas.addEventListener('touchstart', touchstart_event)
       window.canvas.removeEventListener('mousemove', handleMouseMove);
       window.canvas.removeEventListener('click', click_event);
     }
@@ -126,9 +126,9 @@ function toggleControlsVisibility() {
       window.joystickActive = false
       window.canvas.addEventListener('mousemove', handleMouseMove);
       window.canvas.addEventListener('click', click_event);
-      // window.canvas.removeEventListener('touchend', touchend_event)
-      // window.canvas.removeEventListener('touchmove', touchmove_event)
-      // window.canvas.removeEventListener('touchstart', touchstart_event)
+      window.canvas.removeEventListener('touchend', touchend_event)
+      window.canvas.removeEventListener('touchmove', touchmove_event)
+      window.canvas.removeEventListener('touchstart', touchstart_event)
     }
 
     updateButtonVisibility()

@@ -126,7 +126,7 @@ if (canvas) {
   console.error('Cannot add click event listener: canvas is not defined');
 }
 
-function touchstart_event(){
+function touchstart_event(e){
   console.log('touchstart event fired', { touches: e.changedTouches.length });
 
   // Prevents default touch behavior (e.g., scrolling) to ensure game control.
@@ -196,7 +196,7 @@ if (canvas) {
   console.error('Cannot add touchstart event listener: canvas is not defined');
 }
 
-function touchmove_event(){
+function touchmove_event(e){
   console.log('touchmove event fired', { touches: e.touches.length });
 
   // Prevents default touch behavior to ensure game control.
@@ -259,7 +259,7 @@ if (canvas) {
   console.error('Cannot add touchmove event listener: canvas is not defined');
 }
 
-function touchend_event(){
+function touchend_event(e){
   console.log('touchend event fired', { touches: e.changedTouches.length });
 
   // Prevents default touch behavior to ensure game control.
