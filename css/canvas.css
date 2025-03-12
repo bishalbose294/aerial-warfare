@@ -1,51 +1,79 @@
+/* Styles for the <div id="gameContainer"> element from the HTML, defining the layout container for the canvas and sidebar. */
+#gameContainer {
+  display: flex; /* Use flexbox to layout canvas and sidebar side by side */
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+}
+
 /* Styles for the <canvas id="gameCanvas"> element from the HTML, defining the game rendering area. 
    Managed in 'canvasSetup.js'. */
-   #gameCanvas {
-    /* Ensures the canvas is displayed as a block element, taking up full available space. */
-    display: block;
-  
-    /* Sets the canvas width to 100% of the viewport width (vw) when styled dynamically, matching the body's height for a full-screen experience. */
-    width: 130vw;
-  
-    /* Sets the canvas height to 100% of the viewport height (vh) when styled dynamically, ensuring it fills the screen vertically. */
-    height: 100vh;
-  
-    /* Hides the cursor when over the canvas, controlled dynamically in 'canvasSetup.js' (via canvas.style.cursor = 'none') to enhance immersion during gameplay. */
-    /* cursor: none; */
-  
-    /* Positions the canvas absolutely at the top-left corner of the body, allowing it to overlay the background. */
-    position: absolute;
-  
-    /* Positions the canvas at the top edge of the body (0 pixels from the top). */
-    top: 0;
-  
-    /* Positions the canvas at the left edge of the body (0 pixels from the left). */
-    left: 0;
-  
-    /* Sets a z-index of 0 to place the canvas above the body background but below UI elements (e.g., buttons, popups) with higher z-index values. */
-    z-index: 0; /* Increased from -1 to ensure it’s above background but below UI */
-  
-    /* Enables pointer events on the canvas, allowing mouse and touch interactions to be captured in 'input.js' (e.g., handleMouseMove, touch events). */
-    pointer-events: auto;
+#gameCanvas {
+  /* Ensures the canvas is displayed as a block element, taking up available space within the container. */
+  display: block;
 
-    touch-action: none;
-  
-    /* Ensures the canvas takes the full viewport width without padding or margin interference. */
-    max-width: none;
-    margin: 0;
-    padding: 0;
+  /* Sets the canvas width to 80% of the viewport width to leave space for the sidebar on the right. */
+  width: 80vw;
+
+  /* Sets the canvas height to 100% of the viewport height, ensuring it fills the screen vertically. */
+  height: 100vh;
+
+  /* Hides the cursor when over the canvas, controlled dynamically in 'canvasSetup.js' (via canvas.style.cursor = 'none') to enhance immersion during gameplay. */
+  /* cursor: none; */
+
+  /* Positions the canvas relatively within the gameContainer to fit the flex layout. */
+  position: relative;
+
+  /* Removes absolute positioning offsets, as the flex container handles layout. */
+  top: 0;
+  left: 0;
+
+  /* Sets a z-index of 0 to place the canvas above the body background but below UI elements (e.g., buttons, popups) with higher z-index values. */
+  z-index: 0; /* Increased from -1 to ensure it’s above background but below UI */
+
+  /* Enables pointer events on the canvas, allowing mouse and touch interactions to be captured in 'input.js' (e.g., handleMouseMove, touch events). */
+  pointer-events: auto;
+
+  touch-action: none;
+
+  /* Ensures the canvas fits within the container without padding or margin interference. */
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Styles for the <div id="sidebar"> element from the HTML, defining the sidebar area for personal best and buttons. */
+#sidebar {
+  width: 20vw; /* Sidebar takes remaining space (100vw - 80vw = 20vw) */
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8); /* Dark background for contrast */
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center items horizontally */
+  padding-top: 10px; /* Space at the top */
+  z-index: 10; /* Above canvas */
+}
+
+/* Styles for the <div id="personalBestDisplay"> element from the HTML, displaying the personal best score. */
+#personalBestDisplay {
+  /* Removes absolute positioning, letting it flow in the sidebar */
+  position: static;
+
+  color: white; /* Adjust based on canvas background */
+  font-family: 'Comic Sans MS', sans-serif; /* Match existing style */
+  font-size: 18px;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-bottom: 20px; /* Space below personal best */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  #gameCanvas {
+    width: 70vw; /* More space for canvas on mobile */
   }
 
-
-  #personalBestDisplay {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    color: white; /* Adjust based on canvas background */
-    font-family: 'Comic Sans MS', sans-serif; /* Match existing style */
-    font-size: 18px;
-    z-index: 10; /* Above canvas (canvas z-index is 0) */
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
-    padding: 5px 10px;
-    border-radius: 5px;
+  #sidebar {
+    width: 30vw; /* Adjust sidebar width for mobile */
   }
+}

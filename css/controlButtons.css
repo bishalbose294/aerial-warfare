@@ -28,21 +28,16 @@
     /* Applies a linear gradient background from orange (#FF4500) to dark orange (#FF8C00) at a 135-degree angle for a vibrant effect. */
     background: linear-gradient(135deg, #FF4500, #FF8C00);
   
-    /* Fixes the position relative to the viewport, keeping it visible regardless of scrolling. */
-    position: fixed;
+    /* Removes fixed positioning, letting it flow in the sidebar */
+    position: static;
   
-    /* Positions the button 2% from the top of the viewport. */
-    top: 2%;
+    /* Sets a width to fit within the sidebar */
+    width: 80%;
   
-    /* Positions the button 40% from the left, adjusted for three buttons to be spaced horizontally. */
-    left: 40%; /* Adjusted for three buttons */
+    /* Adds margin-bottom for spacing between buttons */
+    margin-bottom: 10px;
   
-    /* Translates the button horizontally by -50% of its width to center it relative to its left position. */
-    transform: translateX(-50%); /* Center the button */
-  
-    /* Sets a z-index of 300 to ensure the button appears above the canvas (z-index 0) and other UI elements. */
-    z-index: 300; /* Ensure above canvas */
-
+    /* Display controlled by gameFlow.js */
     display: none;
   }
   
@@ -76,21 +71,16 @@
     /* Applies a linear gradient background from orange (#FF4500) to dark orange (#FF8C00) at a 135-degree angle for a vibrant effect. */
     background: linear-gradient(135deg, #FF4500, #FF8C00);
   
-    /* Fixes the position relative to the viewport, keeping it visible regardless of scrolling. */
-    position: fixed;
+    /* Removes fixed positioning, letting it flow in the sidebar */
+    position: static;
   
-    /* Positions the button 2% from the top of the viewport. */
-    top: 2%;
+    /* Sets a width to fit within the sidebar */
+    width: 80%;
   
-    /* Positions the button 50% from the left, centered among the three buttons. */
-    left: 50%; /* Center position */
+    /* Adds margin-bottom for spacing between buttons */
+    margin-bottom: 10px;
   
-    /* Translates the button horizontally by -50% of its width to center it relative to its left position. */
-    transform: translateX(-50%); /* Center the button */
-  
-    /* Sets a z-index of 300 to ensure the button appears above the canvas (z-index 0) and other UI elements. */
-    z-index: 300; /* Ensure above canvas */
-
+    /* Display controlled by gameFlow.js */
     display: none;
   }
   
@@ -124,36 +114,30 @@
     /* Applies a linear gradient background from blue (#6E8EFB) to purple (#A777E3) at a 135-degree angle for a distinct look. */
     background: linear-gradient(135deg, #6E8EFB, #A777E3);
   
-    /* Fixes the position relative to the viewport, keeping it visible regardless of scrolling. */
-    position: fixed;
+    /* Removes fixed positioning, letting it flow in the sidebar */
+    position: static;
   
-    /* Positions the button 2% from the top of the viewport. */
-    top: 2%;
+    /* Sets a width to fit within the sidebar */
+    width: 80%;
   
-    /* Positions the button 60% from the left, adjusted for three buttons to be spaced horizontally. */
-    left: 60%; /* Adjusted for three buttons */
+    /* Adds margin-bottom for spacing between buttons */
+    margin-bottom: 10px;
   
-    /* Translates the button horizontally by -50% of its width to center it relative to its left position. */
-    transform: translateX(-50%); /* Center the button */
-  
-    /* Sets a z-index of 300 to ensure the button appears above the canvas (z-index 0) and other UI elements. */
-    z-index: 300; /* Ensure above canvas */
+    /* Display controlled by gameFlow.js (remains visible) */
+    display: block;
   }
   
   /* Styles for the <button id="fullscreenButton"> element from the HTML, defining the fullscreen button. 
      Managed in 'gameFlow.js'. */
   #fullscreenButton {
-    /* Fixes the position relative to the viewport, keeping it visible regardless of scrolling. */
-    position: fixed;
+    /* Removes fixed positioning, letting it flow in the sidebar */
+    position: static;
   
-    /* Positions the button 10px from the bottom of the viewport. */
-    bottom: 10px; /* Adjust as needed */
+    /* Sets a width to fit within the sidebar */
+    width: 80%;
   
-    /* Positions the button 10px from the right edge of the viewport. */
-    right: 20%; /* Adjust as needed */
-  
-    /* Sets a z-index of 200 to ensure the button appears above the canvas (z-index 0) but may be below popups (e.g., #endGamePopup at 100). */
-    z-index: 200; /* Ensure it stays above the canvas */
+    /* Adds margin-bottom for spacing between buttons */
+    margin-bottom: 10px;
   
     /* Applies a linear gradient background from sky blue (#87CEEB) to light cyan (#E0FFFF) to match the body background. */
     background: linear-gradient(135deg, #87CEEB, #E0FFFF);
@@ -174,12 +158,15 @@
     cursor: pointer;
   
     /* Initially hides the button (display: none), controlled in 'gameFlow.js' (via fullscreenButton.style.display) to show it when the game starts. */
-    display: none; /* Initially hidden, shown by JavaScript */
+    display: none;
   }
   
   /* Styles for the hover state of all control buttons, enhancing interactivity. 
      Managed in 'gameFlow.js'. */
-  #pauseResumeButton:hover, #resetButton:hover, #toggleControls:hover, #fullscreenButton:hover {
+  #pauseResumeButton:hover,
+  #resetButton:hover,
+  #toggleControls:hover,
+  #fullscreenButton:hover {
     /* Reverses the gradient direction (dark orange to orange) for a dynamic effect on #pauseResumeButton, #resetButton, and #fullscreenButton. */
     background: linear-gradient(135deg, #FF8C00, #FF4500);
   
@@ -203,14 +190,18 @@
   
   /* Styles for the active (click) state of all control buttons, simulating a press. 
      Managed in 'gameFlow.js'. */
-  #pauseResumeButton:active, #resetButton:active, #toggleControls:active, #fullscreenButton:active {
+  #pauseResumeButton:active,
+  #resetButton:active,
+  #toggleControls:active,
+  #fullscreenButton:active {
     /* Reduces the shadow (0 offset-x, 2px offset-y, 4px blur, 0.2 opacity black) to indicate it’s pressed. */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
   
   /* Styles for the disabled state of #pauseResumeButton and #resetButton, indicating they’re not clickable. 
      Managed in 'gameFlow.js'. */
-  #pauseResumeButton:disabled, #resetButton:disabled {
+  #pauseResumeButton:disabled,
+  #resetButton:disabled {
     /* Changes the background to light gray (#d3d3d3) to signal it’s disabled. */
     background: #d3d3d3;
   

@@ -5,7 +5,6 @@
 <html lang="en">
 
 <!-- The <head> section contains metadata and external resources for the page. -->
-
 <head>
   <!-- Sets the character encoding to UTF-8, ensuring proper rendering of special characters and supporting internationalization. -->
   <meta charset="UTF-8">
@@ -42,25 +41,28 @@
     <button id="startGame">Start Game</button>
   </div>
 
-  <!-- Control Buttons: A set of buttons for in-game controls, initially hidden and shown via JavaScript when the game starts. -->
-  <!-- Pause/Resume button with 'id="pauseResumeButton"'. Toggles between "Pause" and "Resume" text, controlled in 'script.js' (via document.getElementById('pauseResumeButton')). Click event listener in 'script.js' pauses or resumes the game loop. Styled in 'styles.css' to be centered on the canvas with a fancy gradient, hover effects, and animations. -->
-  <button id="pauseResumeButton">Pause</button>
+  <!-- Game Container: Wraps the canvas and sidebar -->
+  <div id="gameContainer">
+    <!-- Game Canvas: The main rendering area for the game. -->
+    <!-- <canvas> element with 'id="gameCanvas"' is where the game is drawn using the 2D rendering context in 'script.js' (via document.getElementById('gameCanvas').getContext('2d')). It renders the background, player, enemies, bullets, power-ups, HP bar, score, and other game elements. Styled in 'styles.css' to be absolutely positioned at the top-left corner with a z-index of 100, ensuring it’s below UI elements like buttons. -->
+    <canvas id="gameCanvas"></canvas>
 
-  <!-- Reset button with 'id="resetButton"'. Resets the game state when clicked, controlled in 'script.js' (via document.getElementById('resetButton')). Click event listener in 'script.js' calls resetGame() to restart the game. Styled in 'styles.css' to be centered on the canvas, matching other control buttons in appearance. -->
-  <button id="resetButton">Reset</button>
+    <!-- Sidebar: Contains personal best and control buttons -->
+    <div id="sidebar">
+      <div id="personalBestDisplay">Personal Best: 0</div>
+      <!-- Pause/Resume button with 'id="pauseResumeButton"'. Toggles between "Pause" and "Resume" text, controlled in 'script.js' (via document.getElementById('pauseResumeButton')). Click event listener in 'script.js' pauses or resumes the game loop. Styled in 'styles.css' to be centered on the canvas with a fancy gradient, hover effects, and animations. -->
+      <button id="pauseResumeButton">Pause</button>
 
-  <!-- Toggle Controls button with 'id="toggleControls"'. Toggles between "Touch Mode" and "Mouse Mode", controlled in 'script.js' (via document.getElementById('toggleControls')). Click event listener in 'script.js' switches the controlMode variable between 'touch' and 'mouse' for input handling. Styled in 'styles.css' to be centered on the canvas with a matching design. -->
-  <button id="toggleControls">Switch to Touch Mode</button>
+      <!-- Reset button with 'id="resetButton"'. Resets the game state when clicked, controlled in 'script.js' (via document.getElementById('resetButton')). Click event listener in 'script.js' calls resetGame() to restart the game. Styled in 'styles.css' to be centered on the canvas, matching other control buttons in appearance. -->
+      <button id="resetButton">Reset</button>
 
-  <!-- Fullscreen button with 'id="fullscreenButton"'. Toggles fullscreen mode, controlled in 'script.js' (via document.getElementById('fullscreenButton')). Click event listener in 'script.js' calls toggleFullscreen() to enter/exit fullscreen. Text changes between "Fullscreen" and "Exit Fullscreen" based on state. Styled in 'styles.css' to appear on the right side of the canvas with a matching design. -->
-  <button id="fullscreenButton">Fullscreen</button>
+      <!-- Toggle Controls button with 'id="toggleControls"'. Toggles between "Touch Mode" and "Mouse Mode", controlled in 'script.js' (via document.getElementById('toggleControls')). Click event listener in 'script.js' switches the controlMode variable between 'touch' and 'mouse' for input handling. Styled in 'styles.css' to be centered on the canvas with a matching design. -->
+      <button id="toggleControls">Switch to Touch Mode</button>
 
-  <!-- Game Canvas: The main rendering area for the game. -->
-  <!-- <canvas> element with 'id="gameCanvas"' is where the game is drawn using the 2D rendering context in 'script.js' (via document.getElementById('gameCanvas').getContext('2d')). It renders the background, player, enemies, bullets, power-ups, HP bar, score, and other game elements. Styled in 'styles.css' to be absolutely positioned at the top-left corner with a z-index of 100, ensuring it’s below UI elements like buttons. -->
-  <canvas id="gameCanvas"></canvas>
-
-
-  <div id="personalBestDisplay">Personal Best: 0</div>
+      <!-- Fullscreen button with 'id="fullscreenButton"'. Toggles fullscreen mode, controlled in 'script.js' (via document.getElementById('fullscreenButton')). Click event listener in 'script.js' calls toggleFullscreen() to enter/exit fullscreen. Text changes between "Fullscreen" and "Exit Fullscreen" based on state. Styled in 'styles.css' to appear on the right side of the canvas with a matching design. -->
+      <button id="fullscreenButton">Fullscreen</button>
+    </div>
+  </div>
 
   <!-- End Game Popup: A container for the game-over screen, shown when the player loses. -->
   <!-- <div> with 'id="endGamePopup"' is a container for the game-over popup, styled in 'styles.css' to be centered on the screen with a gradient background, border, and padding. Initially hidden (display: none) and shown in 'script.js' via endGame() when the player’s HP reaches 0. Has a higher z-index (400) to overlay other elements. -->
