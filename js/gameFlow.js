@@ -1,11 +1,50 @@
+// Function to detect if the device is a phone
+function isPhoneDevice() {
+  // Check for touch support
+  const hasTouchSupport = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+  // Check user agent for mobile-specific strings
+  const userAgent = navigator.userAgent.toLowerCase();
+  const isMobileUserAgent = /android|iphone|ipad|ipod|webos|blackberry|windows phone/.test(userAgent);
+
+  // Check screen width (optional, as a fallback)
+  const isSmallScreen = window.matchMedia('(max-width: 768px)').matches;
+
+  // Consider it a phone if it has touch support, matches a mobile user agent, or has a small screen
+  return hasTouchSupport || isMobileUserAgent || isSmallScreen;
+}
+
 // Sets the toggleControlsButton text based on the initial inputMode, styled in CSS with 'font-family: Comic Sans MS'.
 if (toggleControlsButton) {
-  if (window.controlMode !== undefined) {
-    toggleControlsButton.textContent = window.controlMode === 'touch' ? 'Switch to Mouse Mode' : 'Switch to Touch Mode';
+  // Detect device type and set initial control mode
+  window.controlMode = isPhoneDevice() ? 'touch' : 'mouse';
+  window.joystickActive = window.controlMode === 'touch';
+
+  toggleControlsButton.textContent = window.controlMode === 'touch' ? 'Switch to Mouse Mode' : 'Switch to Touch Mode';
+  
+
+  if (window.controlMode === 'touch') {
     window.joystickActive = true
-  } else {
-    console.warn('inputMode is undefined at initialization, toggleControlsButton text not set');
+    window.canvas.addEventListener('touchend', touchend_event)
+    window.canvas.addEventListener('touchmove', touchmove_event)
+    window.canvas.addEventListener('touchstart', touchstart_event)
+    window.canvas.removeEventListener('mousemove', handleMouseMove);
+    window.canvas.removeEventListener('click', click_event);
   }
+  else {
+    window.joystickActive = false
+    window.canvas.addEventListener('mousemove', handleMouseMove);
+    window.canvas.addEventListener('click', click_event);
+    window.canvas.removeEventListener('touchend', touchend_event)
+    window.canvas.removeEventListener('touchmove', touchmove_event)
+    window.canvas.removeEventListener('touchstart', touchstart_event)
+  }
+
+  updateButtonVisibility()
+
+  updateHelpTextVisibility()
+} else {
+  console.warn('toggleControlsButton not found, cannot set initial control mode');
 }
 
 // Function to reset the game state to initial conditions.
@@ -109,13 +148,13 @@ function toggleControlsVisibility() {
   if (gameStarted && toggleControlsButton) {
     // Toggles the window.controlMode between 'mouse' and 'touch'.
     window.controlMode = window.controlMode === 'mouse' ? 'touch' : 'mouse';
+    window.joystickActive = window.controlMode === 'touch';
 
     // Updates the button text based on the new window.controlMode.
     toggleControlsButton.textContent = window.controlMode === 'touch' ? 'Switch to Mouse Mode' : 'Switch to Touch Mode';
     // console.log('Controls visibility toggled, mode displayed as:', inputMode);
 
     if (window.controlMode === 'touch') {
-      window.joystickActive = true
       window.canvas.addEventListener('touchend', touchend_event)
       window.canvas.addEventListener('touchmove', touchmove_event)
       window.canvas.addEventListener('touchstart', touchstart_event)
@@ -123,7 +162,6 @@ function toggleControlsVisibility() {
       window.canvas.removeEventListener('click', click_event);
     }
     else {
-      window.joystickActive = false
       window.canvas.addEventListener('mousemove', handleMouseMove);
       window.canvas.addEventListener('click', click_event);
       window.canvas.removeEventListener('touchend', touchend_event)
@@ -322,7 +360,7 @@ function updateInputModeDisplay() {
 
 // Function to update button visibility based on input mode
 function updateButtonVisibility() {
-  if (window.controlMode === 'mouse' && gameStarted) {
+  if (window.controlMode === 'mouse') {
     pauseResumeButton.style.display = 'none';
     resetButton.style.display = 'none';
     fullscreenButton.style.display = 'none';
