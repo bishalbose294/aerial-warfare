@@ -1,0 +1,169 @@
+/* Styles for the <div id="startScreen"> element from the HTML, defining the initial game screen. 
+   Managed in 'gameFlow.js'. */
+   #startScreen {
+    /* Fixes the position relative to the viewport, keeping it centered regardless of scrolling (though overflow is hidden). */
+    position: fixed;
+  
+    /* Centers the start screen vertically by placing it 50% from the top of the viewport. */
+    top: 50%;
+  
+    /* Centers the start screen horizontally by placing it 50% from the left of the viewport. */
+    left: 50%;
+  
+    /* Translates the element by -50% of its own width and height to perfectly center it, compensating for its fixed position. This is a common centering technique. */
+    transform: translate(-50%, -50%);
+  
+    /* Aligns text (e.g., h1, input, button) to the center within the div for a balanced layout. */
+    text-align: center;
+  
+    /* Sets a semi-transparent white background (rgba(255, 255, 255, 0.9)) to make the start screen stand out against the sky blue body background. */
+    background: rgba(255, 255, 255, 0.9);
+  
+    /* Adds padding of 30px inside the div to give space around the content (h1, input, button). */
+    padding: 30px;
+  
+    /* Rounds the corners of the start screen with a 15px radius for a softer appearance. */
+    border-radius: 15px;
+  
+    /* Adds a subtle shadow effect (0 offset-x, 0 offset-y, 20px blur, 0.3 opacity black) to give the div a lifted look. */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  
+    /* Sets a z-index of 100 to ensure the start screen appears above the canvas (z-index 0) and is initially visible until hidden by 'gameFlow.js' when the game starts. */
+    z-index: 100;
+  
+    /* Sets a fixed width of 300px to constrain the start screen size. */
+    width: 300px;
+  
+    /* Limits the maximum height to 80% of the viewport height to prevent overflow on smaller screens. */
+    max-height: 80vh;
+  
+    /* Adds vertical scrolling if the content exceeds max-height, though currently unlikely with the limited elements. */
+    overflow-y: auto;
+  }
+  
+  /* Styles for the <h1> element inside #startScreen from the HTML, defining the game title appearance. 
+     Managed in 'gameFlow.js'. */
+  #startScreen h1 {
+    /* Removes default margin and sets a 20px bottom margin to space it from the input below. */
+    margin: 0 0 20px 0;
+  
+    /* Sets the font size to 36px for a prominent title. */
+    font-size: 36px;
+  
+    /* Sets the text color to orange (#FF4500) to match the game's theme. */
+    color: #FF4500;
+  
+    /* Adds a text shadow (2px horizontal, 2px vertical, 4px blur, black) for a 3D effect. */
+    text-shadow: 2px 2px 4px #000;
+  }
+  
+  /* Styles for the <input id="playerNameInput"> element from the HTML, defining the name input field. 
+     Managed in 'gameFlow.js'. */
+  #playerNameInput {
+    /* Adds 10px padding inside the input for better usability and appearance. */
+    padding: 10px;
+  
+    /* Sets the font size to 18px to match the button and ensure readability. */
+    font-size: 18px;
+  
+    /* Adds a 3px solid orange border (#FF4500) to outline the input field. */
+    border: 3px solid #FF4500;
+  
+    /* Rounds the input corners with a 25px radius for a modern look. */
+    border-radius: 25px;
+  
+    /* Removes the default outline when focused to customize the focus effect below. */
+    outline: none;
+  
+    /* Sets a white background for the input to contrast with the border. */
+    background: #fff;
+  
+    /* Sets a fixed width of 200px to control the input size. */
+    width: 200px;
+  
+    /* Adds an inner shadow (0 offset-x, 2px offset-y, 4px blur, 0.1 opacity black) for depth. */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+    /* Adds a smooth transition for the border-color property over 0.3s with an ease timing function, used in the :focus state below. */
+    transition: border-color 0.3s ease;
+  
+    /* Adds a 15px bottom margin to space it from the start button below. */
+    margin-bottom: 15px;
+  }
+  
+  /* Styles for the #playerNameInput when focused, enhancing the visual feedback. 
+     Managed in 'gameFlow.js'. */
+  #playerNameInput:focus {
+    /* Changes the border color to green (#00FF00) to indicate focus. */
+    border-color: #00FF00;
+  
+    /* Adds a green glow effect (0 offset-x, 0 offset-y, 5px blur, #00FF00) around the input when focused. */
+    box-shadow: 0 0 5px #00FF00;
+  }
+  
+  /* Styles for the <button id="startGame"> element from the HTML, defining the start button appearance. 
+     Managed in 'gameFlow.js'. */
+  #startGame {
+    /* Adds 12px vertical and 24px horizontal padding for a larger clickable area. */
+    padding: 12px 24px;
+  
+    /* Sets the font size to 20px for readability and consistency with other buttons. */
+    font-size: 20px;
+  
+    /* Sets the text color to white for contrast against the gradient background. */
+    color: white;
+  
+    /* Applies a linear gradient background from orange (#FF4500) to dark orange (#FF8C00) at a 135-degree angle for a vibrant effect. */
+    background: linear-gradient(135deg, #FF4500, #FF8C00);
+  
+    /* Removes the default button border to rely on the gradient and shadow. */
+    border: none;
+  
+    /* Rounds the button corners with a 25px radius for a modern look. */
+    border-radius: 25px;
+  
+    /* Changes the cursor to a pointer to indicate the button is clickable. */
+    cursor: pointer;
+  
+    /* Adds a shadow (0 offset-x, 4px offset-y, 6px blur, 0.2 opacity black) to give the button a raised appearance. */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  
+    /* Adds smooth transitions for all animatable properties (e.g., background, box-shadow, transform) over 0.3s with an ease timing function, used in hover and active states below. */
+    transition: all 0.3s ease;
+  }
+  
+  /* Styles for the #startGame button when disabled, indicating it’s not clickable. 
+     Managed in 'gameFlow.js'. */
+  #startGame:disabled {
+    /* Changes the background to a gray gradient (gray to light gray) to signal it’s disabled. */
+    background: linear-gradient(135deg, gray, #d3d3d3);
+  
+    /* Changes the cursor to not-allowed to indicate the button is inactive. */
+    cursor: not-allowed;
+  
+    /* Reduces the shadow (0 offset-x, 2px offset-y, 4px blur, 0.1 opacity black) for a flatter look when disabled. */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styles for the #startGame button on hover, enhancing interactivity. 
+     Managed in 'gameFlow.js'. */
+  #startGame:hover {
+    /* Reverses the gradient direction (dark orange to orange) for a dynamic effect. */
+    background: linear-gradient(135deg, #FF8C00, #FF4500);
+  
+    /* Increases the shadow (0 offset-x, 6px offset-y, 8px blur, 0.3 opacity black) for a stronger lift effect. */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+  
+    /* Moves the button up by 2px to simulate a pressed effect on hover. */
+    transform: translateY(-2px);
+  }
+  
+  /* Styles for the #startGame button on active (click) state, simulating a press. 
+     Managed in 'gameFlow.js'. */
+  #startGame:active {
+    /* Reduces the shadow (0 offset-x, 2px offset-y, 4px blur, 0.2 opacity black) to indicate it’s pressed. */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  
+    /* Resets the transform to 0, returning the button to its original position after the click. */
+    transform: translateY(0);
+  }

@@ -1,0 +1,222 @@
+/* Styles for the <button id="pauseResumeButton"> element from the HTML, defining the pause/resume button. 
+   Managed in 'gameFlow.js'. */
+   #pauseResumeButton {
+    /* Adds 10px vertical and 20px horizontal padding for a larger clickable area. */
+    padding: 10px 20px;
+  
+    /* Sets the font size to 16px for readability. */
+    font-size: 16px;
+  
+    /* Sets the text color to white for contrast against the gradient background. */
+    color: white;
+  
+    /* Removes the default button border to rely on the gradient and shadow. */
+    border: none;
+  
+    /* Rounds the button corners with a 20px radius for a modern look. */
+    border-radius: 20px;
+  
+    /* Changes the cursor to a pointer to indicate the button is clickable. */
+    cursor: pointer;
+  
+    /* Adds a shadow (0 offset-x, 4px offset-y, 6px blur, 0.2 opacity black) to give the button a raised appearance. */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  
+    /* Adds smooth transitions for all animatable properties (e.g., background, box-shadow) over 0.3s with an ease timing function, used in hover and active states below. */
+    transition: all 0.3s ease;
+  
+    /* Applies a linear gradient background from orange (#FF4500) to dark orange (#FF8C00) at a 135-degree angle for a vibrant effect. */
+    background: linear-gradient(135deg, #FF4500, #FF8C00);
+  
+    /* Fixes the position relative to the viewport, keeping it visible regardless of scrolling. */
+    position: fixed;
+  
+    /* Positions the button 2% from the top of the viewport. */
+    top: 2%;
+  
+    /* Positions the button 40% from the left, adjusted for three buttons to be spaced horizontally. */
+    left: 40%; /* Adjusted for three buttons */
+  
+    /* Translates the button horizontally by -50% of its width to center it relative to its left position. */
+    transform: translateX(-50%); /* Center the button */
+  
+    /* Sets a z-index of 300 to ensure the button appears above the canvas (z-index 0) and other UI elements. */
+    z-index: 300; /* Ensure above canvas */
+
+    display: none;
+  }
+  
+  /* Styles for the <button id="resetButton"> element from the HTML, defining the reset button. 
+     Managed in 'gameFlow.js'. */
+  #resetButton {
+    /* Adds 10px vertical and 20px horizontal padding for a larger clickable area. */
+    padding: 10px 20px;
+  
+    /* Sets the font size to 16px for readability. */
+    font-size: 16px;
+  
+    /* Sets the text color to white for contrast against the gradient background. */
+    color: white;
+  
+    /* Removes the default button border to rely on the gradient and shadow. */
+    border: none;
+  
+    /* Rounds the button corners with a 20px radius for a modern look. */
+    border-radius: 20px;
+  
+    /* Changes the cursor to a pointer to indicate the button is clickable. */
+    cursor: pointer;
+  
+    /* Adds a shadow (0 offset-x, 4px offset-y, 6px blur, 0.2 opacity black) to give the button a raised appearance. */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  
+    /* Adds smooth transitions for all animatable properties over 0.3s with an ease timing function, used in hover and active states below. */
+    transition: all 0.3s ease;
+  
+    /* Applies a linear gradient background from orange (#FF4500) to dark orange (#FF8C00) at a 135-degree angle for a vibrant effect. */
+    background: linear-gradient(135deg, #FF4500, #FF8C00);
+  
+    /* Fixes the position relative to the viewport, keeping it visible regardless of scrolling. */
+    position: fixed;
+  
+    /* Positions the button 2% from the top of the viewport. */
+    top: 2%;
+  
+    /* Positions the button 50% from the left, centered among the three buttons. */
+    left: 50%; /* Center position */
+  
+    /* Translates the button horizontally by -50% of its width to center it relative to its left position. */
+    transform: translateX(-50%); /* Center the button */
+  
+    /* Sets a z-index of 300 to ensure the button appears above the canvas (z-index 0) and other UI elements. */
+    z-index: 300; /* Ensure above canvas */
+
+    display: none;
+  }
+  
+  /* Styles for the <button id="toggleControls"> element from the HTML, defining the toggle controls button. 
+     Managed in 'gameFlow.js'. */
+  #toggleControls {
+    /* Adds 10px vertical and 20px horizontal padding for a larger clickable area. */
+    padding: 10px 20px;
+  
+    /* Sets the font size to 16px for readability. */
+    font-size: 16px;
+  
+    /* Sets the text color to white for contrast against the gradient background. */
+    color: white;
+  
+    /* Removes the default button border to rely on the gradient and shadow. */
+    border: none;
+  
+    /* Rounds the button corners with a 20px radius for a modern look. */
+    border-radius: 20px;
+  
+    /* Changes the cursor to a pointer to indicate the button is clickable. */
+    cursor: pointer;
+  
+    /* Adds a shadow (0 offset-x, 4px offset-y, 6px blur, 0.2 opacity black) to give the button a raised appearance. */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  
+    /* Adds smooth transitions for all animatable properties over 0.3s with an ease timing function, used in hover and active states below. */
+    transition: all 0.3s ease;
+  
+    /* Applies a linear gradient background from blue (#6E8EFB) to purple (#A777E3) at a 135-degree angle for a distinct look. */
+    background: linear-gradient(135deg, #6E8EFB, #A777E3);
+  
+    /* Fixes the position relative to the viewport, keeping it visible regardless of scrolling. */
+    position: fixed;
+  
+    /* Positions the button 2% from the top of the viewport. */
+    top: 2%;
+  
+    /* Positions the button 60% from the left, adjusted for three buttons to be spaced horizontally. */
+    left: 60%; /* Adjusted for three buttons */
+  
+    /* Translates the button horizontally by -50% of its width to center it relative to its left position. */
+    transform: translateX(-50%); /* Center the button */
+  
+    /* Sets a z-index of 300 to ensure the button appears above the canvas (z-index 0) and other UI elements. */
+    z-index: 300; /* Ensure above canvas */
+  }
+  
+  /* Styles for the <button id="fullscreenButton"> element from the HTML, defining the fullscreen button. 
+     Managed in 'gameFlow.js'. */
+  #fullscreenButton {
+    /* Fixes the position relative to the viewport, keeping it visible regardless of scrolling. */
+    position: fixed;
+  
+    /* Positions the button 10px from the bottom of the viewport. */
+    bottom: 10px; /* Adjust as needed */
+  
+    /* Positions the button 10px from the right edge of the viewport. */
+    right: 20%; /* Adjust as needed */
+  
+    /* Sets a z-index of 200 to ensure the button appears above the canvas (z-index 0) but may be below popups (e.g., #endGamePopup at 100). */
+    z-index: 200; /* Ensure it stays above the canvas */
+  
+    /* Applies a linear gradient background from sky blue (#87CEEB) to light cyan (#E0FFFF) to match the body background. */
+    background: linear-gradient(135deg, #87CEEB, #E0FFFF);
+  
+    /* Adds 10px padding inside the button for a larger clickable area. */
+    padding: 10px;
+  
+    /* Rounds the button corners with a 10px radius for a subtle effect. */
+    border-radius: 10px;
+  
+    /* Adds a 2px solid gold border (#FFD700) to match the game’s theme. */
+    border: 2px solid #FFD700;
+  
+    /* Overrides the body’s font-family with 'Comic Sans MS' for a playful style, with a cursive fallback. */
+    font-family: 'Comic Sans MS', cursive;
+  
+    /* Changes the cursor to a pointer to indicate the button is clickable. */
+    cursor: pointer;
+  
+    /* Initially hides the button (display: none), controlled in 'gameFlow.js' (via fullscreenButton.style.display) to show it when the game starts. */
+    display: none; /* Initially hidden, shown by JavaScript */
+  }
+  
+  /* Styles for the hover state of all control buttons, enhancing interactivity. 
+     Managed in 'gameFlow.js'. */
+  #pauseResumeButton:hover, #resetButton:hover, #toggleControls:hover, #fullscreenButton:hover {
+    /* Reverses the gradient direction (dark orange to orange) for a dynamic effect on #pauseResumeButton, #resetButton, and #fullscreenButton. */
+    background: linear-gradient(135deg, #FF8C00, #FF4500);
+  
+    /* Increases the shadow (0 offset-x, 6px offset-y, 8px blur, 0.3 opacity black) for a stronger lift effect. */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Styles for the hover state of #toggleControls, providing a unique gradient effect. 
+     Managed in 'gameFlow.js'. */
+  #toggleControls:hover {
+    /* Reverses the gradient direction (purple to blue) for a distinct hover effect. */
+    background: linear-gradient(135deg, #A777E3, #6E8EFB);
+  }
+  
+  /* Styles for the hover state of #fullscreenButton, providing a unique gradient effect. 
+     Managed in 'gameFlow.js'. */
+  #fullscreenButton:hover {
+    /* Applies a new gradient from light sea green (#20B2AA) to dark turquoise (#00CED1) for a distinct hover effect. */
+    background: linear-gradient(135deg, #20B2AA, #00CED1);
+  }
+  
+  /* Styles for the active (click) state of all control buttons, simulating a press. 
+     Managed in 'gameFlow.js'. */
+  #pauseResumeButton:active, #resetButton:active, #toggleControls:active, #fullscreenButton:active {
+    /* Reduces the shadow (0 offset-x, 2px offset-y, 4px blur, 0.2 opacity black) to indicate it’s pressed. */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Styles for the disabled state of #pauseResumeButton and #resetButton, indicating they’re not clickable. 
+     Managed in 'gameFlow.js'. */
+  #pauseResumeButton:disabled, #resetButton:disabled {
+    /* Changes the background to light gray (#d3d3d3) to signal it’s disabled. */
+    background: #d3d3d3;
+  
+    /* Changes the cursor to not-allowed to indicate the button is inactive. */
+    cursor: not-allowed;
+  
+    /* Reduces the shadow (0 offset-x, 2px offset-y, 4px blur, 0.1 opacity black) for a flatter look when disabled. */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }

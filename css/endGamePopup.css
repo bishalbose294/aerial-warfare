@@ -1,0 +1,131 @@
+/* Styles for the <div id="endGamePopup"> element from the HTML, defining the game-over popup. 
+   Managed in 'gameFlow.js'. */
+   #endGamePopup {
+    /* Fixes the position relative to the viewport, keeping it visible regardless of scrolling. */
+    position: fixed;
+  
+    /* Centers the popup vertically by placing it 50% from the top of the viewport. */
+    top: 50%;
+  
+    /* Centers the popup horizontally by placing it 50% from the left of the viewport. */
+    left: 50%;
+  
+    /* Translates the element by -50% of its own width and height to perfectly center it. */
+    transform: translate(-50%, -50%);
+  
+    /* Sets a gold background (#FFD700) to match the game’s theme. */
+    background: #FFD700;
+  
+    /* Adds 30px padding inside the div to space out the content (h2, p, button). */
+    padding: 30px;
+  
+    /* Adds a 5px solid orange border (#FF4500) to outline the popup. */
+    border: 5px solid #FF4500;
+  
+    /* Rounds the corners with a 20px radius for a softer appearance. */
+    border-radius: 20px;
+  
+    /* Adds a shadow (0 offset-x, 0 offset-y, 30px blur, 0.5 opacity black) for a dramatic effect. */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  
+    /* Initially hides the popup (display: none), controlled in 'gameFlow.js' (via endGamePopup.style.display) to show it when the game ends. */
+    display: none;
+  
+    /* Centers the text within the popup for a balanced layout. */
+    text-align: center;
+  
+    /* Sets a z-index of 100 to ensure the popup appears above the canvas (z-index 0) and other UI elements. */
+    z-index: 100;
+  
+    /* Sets a fixed width of 300px to constrain the popup size. */
+    width: 300px;
+  
+    /* Limits the maximum height to 80% of the viewport height to prevent overflow on smaller screens. */
+    max-height: 80vh;
+  
+    /* Adds vertical scrolling if the content exceeds max-height, though currently unlikely. */
+    overflow-y: auto;
+  }
+  
+  /* Styles for the <h2> element inside .popup-content within #endGamePopup from the HTML, defining the game-over title. 
+     Managed in 'gameFlow.js'. */
+  #endGamePopup .popup-content h2 {
+    /* Removes default margin and sets a 20px bottom margin to space it from the paragraph below. */
+    margin: 0 0 20px 0;
+  
+    /* Sets the font size to 36px for a prominent title. */
+    font-size: 36px;
+  
+    /* Sets the text color to orange (#FF4500) to match the game’s theme. */
+    color: #FF4500;
+  
+    /* Adds a text shadow (2px horizontal, 2px vertical, 4px blur, black) for a 3D effect. */
+    text-shadow: 2px 2px 4px #000;
+  }
+  
+  /* Styles for the <p> element inside .popup-content within #endGamePopup from the HTML, defining the score display. 
+     Managed in 'gameFlow.js'. */
+  #endGamePopup .popup-content p {
+    /* Sets the font size to 24px for readability. */
+    font-size: 24px;
+  
+    /* Sets the text color to black (#000) for contrast against the gold background. */
+    color: #000;
+  
+    /* Removes default margin and sets a 20px bottom margin to space it from the button below. */
+    margin: 0 0 20px 0;
+  }
+  
+  /* Styles for the <button id="playAgain"> element from the HTML, defining the play again button. 
+     Managed in 'gameFlow.js'. */
+  #playAgain {
+    /* Adds 12px vertical and 24px horizontal padding for a larger clickable area. */
+    padding: 12px 24px;
+  
+    /* Sets the font size to 20px for readability and consistency with #startGame. */
+    font-size: 20px;
+  
+    /* Sets the text color to white for contrast against the gradient background. */
+    color: white;
+  
+    /* Applies a linear gradient background from lime (#00FF00) to lime green (#32CD32) at a 135-degree angle for a vibrant effect. */
+    background: linear-gradient(135deg, #00FF00, #32CD32);
+  
+    /* Removes the default button border to rely on the gradient and shadow. */
+    border: none;
+  
+    /* Rounds the button corners with a 25px radius for a modern look. */
+    border-radius: 25px;
+  
+    /* Changes the cursor to a pointer to indicate the button is clickable. */
+    cursor: pointer;
+  
+    /* Adds a shadow (0 offset-x, 4px offset-y, 6px blur, 0.2 opacity black) to give the button a raised appearance. */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  
+    /* Adds smooth transitions for all animatable properties over 0.3s with an ease timing function, used in hover and active states below. */
+    transition: all 0.3s ease;
+  }
+  
+  /* Styles for the #playAgain button on hover, enhancing interactivity. 
+     Managed in 'gameFlow.js'. */
+  #playAgain:hover {
+    /* Reverses the gradient direction (lime green to lime) for a dynamic effect. */
+    background: linear-gradient(135deg, #32CD32, #00FF00);
+  
+    /* Increases the shadow (0 offset-x, 6px offset-y, 8px blur, 0.3 opacity black) for a stronger lift effect. */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+  
+    /* Moves the button up by 2px to simulate a pressed effect on hover. */
+    transform: translateY(-2px);
+  }
+  
+  /* Styles for the #playAgain button on active (click) state, simulating a press. 
+     Managed in 'gameFlow.js'. */
+  #playAgain:active {
+    /* Reduces the shadow (0 offset-x, 2px offset-y, 4px blur, 0.2 opacity black) to indicate it’s pressed. */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  
+    /* Resets the transform to 0, returning the button to its original position after the click. */
+    transform: translateY(0);
+  }

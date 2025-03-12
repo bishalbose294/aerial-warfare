@@ -1,0 +1,24 @@
+/* Styles for the <body> element from the HTML, setting the overall page layout and appearance. 
+   Managed in various JavaScript files (e.g., globals.js, canvasSetup.js). */
+   body {
+    /* Removes default margin around the page to ensure the game fills the screen without gaps. */
+    margin: 0;
+  
+    /* Sets a sky blue background color (#87CEEB) to create a thematic sky-like environment for the aerial warfare game. */
+    background: #87CEEB; /* Sky blue background */
+  
+    /* Defines the font family as Arial with a fallback to sans-serif, ensuring readable text across devices. This applies to all text unless overridden by specific elements. */
+    font-family: Arial, sans-serif;
+  
+    /* Removes default padding around the body to maximize the game area. */
+    padding: 0;
+  
+    /* Prevents scrolling by hiding overflow, ensuring the game canvas and UI elements stay within view without scrollbars. */
+    overflow: hidden; /* Prevents scrolling */
+  
+    /* Sets the body height to 100% of the viewport height (vh), ensuring it covers the entire screen. */
+    height: 100vh; /* Full viewport height */
+  
+    /* Establishes a positioning context as 'relative' for child elements with 'position: fixed' (e.g., #startScreen, #leaderboard), allowing them to be positioned relative to the body. */
+    position: relative; /* Establish positioning context for fixed elements */
+  }

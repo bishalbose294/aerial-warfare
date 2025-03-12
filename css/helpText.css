@@ -1,0 +1,17 @@
+/* Styles for the <div id="helpText"> element from the HTML, displaying shortcut information. 
+   Managed in 'gameFlow.js'. */
+   #helpText {
+    position: fixed;
+    bottom: 10px;
+    left: 12%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.2); /* Increased opacity for better visibility */
+    padding: 5px 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Slightly darker shadow for depth */
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    z-index: 500; /* Increased z-index to ensure it’s above all other elements */
+    display: block; /* Hidden by default, visibility managed by gameFlow.js */
+  }

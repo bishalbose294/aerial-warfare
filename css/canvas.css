@@ -1,0 +1,51 @@
+/* Styles for the <canvas id="gameCanvas"> element from the HTML, defining the game rendering area. 
+   Managed in 'canvasSetup.js'. */
+   #gameCanvas {
+    /* Ensures the canvas is displayed as a block element, taking up full available space. */
+    display: block;
+  
+    /* Sets the canvas width to 100% of the viewport width (vw) when styled dynamically, matching the body's height for a full-screen experience. */
+    width: 130vw;
+  
+    /* Sets the canvas height to 100% of the viewport height (vh) when styled dynamically, ensuring it fills the screen vertically. */
+    height: 100vh;
+  
+    /* Hides the cursor when over the canvas, controlled dynamically in 'canvasSetup.js' (via canvas.style.cursor = 'none') to enhance immersion during gameplay. */
+    /* cursor: none; */
+  
+    /* Positions the canvas absolutely at the top-left corner of the body, allowing it to overlay the background. */
+    position: absolute;
+  
+    /* Positions the canvas at the top edge of the body (0 pixels from the top). */
+    top: 0;
+  
+    /* Positions the canvas at the left edge of the body (0 pixels from the left). */
+    left: 0;
+  
+    /* Sets a z-index of 0 to place the canvas above the body background but below UI elements (e.g., buttons, popups) with higher z-index values. */
+    z-index: 0; /* Increased from -1 to ensure it’s above background but below UI */
+  
+    /* Enables pointer events on the canvas, allowing mouse and touch interactions to be captured in 'input.js' (e.g., handleMouseMove, touch events). */
+    pointer-events: auto;
+
+    touch-action: none;
+  
+    /* Ensures the canvas takes the full viewport width without padding or margin interference. */
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  #personalBestDisplay {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white; /* Adjust based on canvas background */
+    font-family: 'Comic Sans MS', sans-serif; /* Match existing style */
+    font-size: 18px;
+    z-index: 10; /* Above canvas (canvas z-index is 0) */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+    padding: 5px 10px;
+    border-radius: 5px;
+  }

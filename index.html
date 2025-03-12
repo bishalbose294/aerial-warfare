@@ -1,0 +1,101 @@
+<!-- Declares the document type as HTML5, ensuring the browser renders the page in standards mode. -->
+<!DOCTYPE html>
+
+<!-- The root element of the HTML page, with the 'lang' attribute set to "en" to specify the language as English for accessibility and SEO purposes. -->
+<html lang="en">
+
+<!-- The <head> section contains metadata and external resources for the page. -->
+
+<head>
+  <!-- Sets the character encoding to UTF-8, ensuring proper rendering of special characters and supporting internationalization. -->
+  <meta charset="UTF-8">
+
+  <!-- Configures the viewport for responsive design, ensuring the page scales correctly on different devices (e.g., mobile). 'width=device-width' matches the device's screen width, and 'initial-scale=1.0' sets the initial zoom level to 1. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Sets the title of the webpage to "Aerial Warfare", which appears in the browser tab and is used for SEO and bookmarks. -->
+  <title>Aerial Warfare</title>
+
+  <!-- Load all CSS files in the correct order -->
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/canvas.css">
+  <link rel="stylesheet" href="css/startScreen.css">
+  <link rel="stylesheet" href="css/controlButtons.css">
+  <link rel="stylesheet" href="css/endGamePopup.css">
+  <link rel="stylesheet" href="css/helpText.css">
+</head>
+
+<!-- The <body> section contains the visible content of the page and interactive elements of the game. -->
+<!-- Add data-input-mode attribute to body for CSS control -->
+<body data-input-mode="undefined">
+
+  <!-- Start Screen: A container for the initial screen shown when the game loads. -->
+  <!-- <div> with 'id="startScreen"' is a wrapper for the start screen UI, styled in 'styles.css' to appear centered on the screen with a gradient background, border, and padding. It is initially visible and hidden via JavaScript in 'script.js' when the game starts. -->
+  <div id="startScreen">
+    <!-- The main heading of the start screen, displaying the game title "Aerial Warfare". Styled in 'styles.css' with a large font size, orange color (#FF4500), and a gold text shadow for visual appeal. -->
+    <h1>Aerial Warfare</h1>
+
+    <!-- An input field for the player to enter their name, with 'type="text"' for text input. 'id="playerNameInput"' is used in 'script.js' to retrieve the player's name (via document.getElementById('playerNameInput')). 'placeholder="Enter Your Name"' provides a hint, and 'maxlength="15"' limits the name to 15 characters to prevent overly long names in UI displays. Styled in 'styles.css' with padding, border, and font settings. -->
+    <input type="text" id="playerNameInput" placeholder="Enter Your Name" maxlength="15">
+
+    <!-- A button to start the game. 'id="startGame"' is used in 'script.js' to attach a click event listener (via document.getElementById('startGame')) that hides the start screen, sets the player's name, and starts the game loop. Initially disabled in 'script.js' until a name is entered. Styled in 'styles.css' with a gradient background, gold border, and hover effects. -->
+    <button id="startGame">Start Game</button>
+  </div>
+
+  <!-- Control Buttons: A set of buttons for in-game controls, initially hidden and shown via JavaScript when the game starts. -->
+  <!-- Pause/Resume button with 'id="pauseResumeButton"'. Toggles between "Pause" and "Resume" text, controlled in 'script.js' (via document.getElementById('pauseResumeButton')). Click event listener in 'script.js' pauses or resumes the game loop. Styled in 'styles.css' to be centered on the canvas with a fancy gradient, hover effects, and animations. -->
+  <button id="pauseResumeButton">Pause</button>
+
+  <!-- Reset button with 'id="resetButton"'. Resets the game state when clicked, controlled in 'script.js' (via document.getElementById('resetButton')). Click event listener in 'script.js' calls resetGame() to restart the game. Styled in 'styles.css' to be centered on the canvas, matching other control buttons in appearance. -->
+  <button id="resetButton">Reset</button>
+
+  <!-- Toggle Controls button with 'id="toggleControls"'. Toggles between "Touch Mode" and "Mouse Mode", controlled in 'script.js' (via document.getElementById('toggleControls')). Click event listener in 'script.js' switches the controlMode variable between 'touch' and 'mouse' for input handling. Styled in 'styles.css' to be centered on the canvas with a matching design. -->
+  <button id="toggleControls">Switch to Touch Mode</button>
+
+  <!-- Fullscreen button with 'id="fullscreenButton"'. Toggles fullscreen mode, controlled in 'script.js' (via document.getElementById('fullscreenButton')). Click event listener in 'script.js' calls toggleFullscreen() to enter/exit fullscreen. Text changes between "Fullscreen" and "Exit Fullscreen" based on state. Styled in 'styles.css' to appear on the right side of the canvas with a matching design. -->
+  <button id="fullscreenButton">Fullscreen</button>
+
+  <!-- Game Canvas: The main rendering area for the game. -->
+  <!-- <canvas> element with 'id="gameCanvas"' is where the game is drawn using the 2D rendering context in 'script.js' (via document.getElementById('gameCanvas').getContext('2d')). It renders the background, player, enemies, bullets, power-ups, HP bar, score, and other game elements. Styled in 'styles.css' to be absolutely positioned at the top-left corner with a z-index of 100, ensuring it’s below UI elements like buttons. -->
+  <canvas id="gameCanvas"></canvas>
+
+
+  <div id="personalBestDisplay">Personal Best: 0</div>
+
+  <!-- End Game Popup: A container for the game-over screen, shown when the player loses. -->
+  <!-- <div> with 'id="endGamePopup"' is a container for the game-over popup, styled in 'styles.css' to be centered on the screen with a gradient background, border, and padding. Initially hidden (display: none) and shown in 'script.js' via endGame() when the player’s HP reaches 0. Has a higher z-index (400) to overlay other elements. -->
+  <div id="endGamePopup">
+    <!-- Inner <div> with 'class="popup-content"' to wrap the popup content, styled in 'styles.css' for additional padding and alignment (though the class may not be used in the current CSS). Provides a nested structure for potential styling flexibility. -->
+    <div class="popup-content">
+      <!-- Heading for the game-over popup, displaying "Game Over!". Styled in 'styles.css' with a large font size, orange color (#FF4500), and gold text shadow for visual emphasis. -->
+      <h2>Game Over!</h2>
+
+      <!-- Paragraph with 'id="finalScore"' to display the player’s final score and high score. Updated in 'script.js' (via document.getElementById('finalScore')) in the endGame() function to show the score (e.g., "Your Score: 100 (High: 150)"). Styled in 'styles.css' with a specific font size and color. -->
+      <p id="finalScore"></p>
+
+      <!-- Play Again button with 'id="playAgain"'. Restarts the game when clicked, controlled in 'script.js' (via document.getElementById('playAgain')). Click event listener in 'script.js' calls resetGame() and hides the popup to restart. Styled in 'styles.css' with a gradient background, gold border, and hover effects, matching the start button. -->
+      <button id="playAgain">Play Again</button>
+    </div>
+  </div>
+
+  <!-- Help Text for Shortcuts -->
+  <div id="helpText">
+    <p>Mouse Mode Shortcuts:</p>
+    <p>P (Pause/Resume)</p>
+    <p>R (Reset)</p>
+    <p>C (Toggle Controls)</p>
+    <p>F (Fullscreen)</p>
+  </div>
+
+  <!-- Load all JavaScript files in the correct order -->
+  <script src="js/globals.js"></script>
+  <script src="js/canvasSetup.js"></script>
+  <script src="js/input.js"></script>
+  <script src="js/gameLogic.js"></script>
+  <script src="js/rendering.js"></script>
+  <script src="js/gameFlow.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+<!-- Closes the <html> tag, marking the end of the document. -->
+</html>
